@@ -1,4 +1,5 @@
 import "./App.css";
+import EmployeeTile from "./EmployeeTile";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -11,22 +12,9 @@ function App() {
 	}, []);
 
 	const employeeList = employees.map((e, i) => {
-		console.log(e);
 		return (
-			<div className="employee-row" key={i}>
-				{e.name}
-				{e.shifts.map((s) => {
-					return (
-						<div>
-							<ul>
-								<li>{s.day}</li>
-								<li>
-									{s.start_at} - {s.end_at}
-								</li>
-							</ul>
-						</div>
-					);
-				})}
+			<div>
+				<EmployeeTile e={e} i={i} />
 			</div>
 		);
 	});

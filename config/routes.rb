@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  get "/shifts", to: "application#index" #, only: [:index]
+  resources :employees
+  resources :shifts
+  get "/shifts", to: "employee#index"
 end
