@@ -15,7 +15,7 @@ function App() {
 	function handleChange(e) {
 		setSortMode(e);
 		{
-			sortMode == "last_name"
+			sortMode === "last_name"
 				? fetch("/shifts").then((r) => {
 						r.json()
 							.then((r) => setEmployees(r))
@@ -31,7 +31,7 @@ function App() {
 
 	const employeeList = employees.map((e, i) => {
 		return (
-			<div id="tile-container">
+			<div className="card-container">
 				<EmployeeTile e={e} i={i} key={i + "employee-tile"} />
 			</div>
 		);
@@ -48,7 +48,7 @@ function App() {
 				<option value="first_name">First Name</option>
 				<option value="last_name">Last Name</option>
 			</select>
-			{employeeList}
+			<div id="tile-container">{employeeList}</div>
 		</div>
 	);
 }
